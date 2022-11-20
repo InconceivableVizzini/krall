@@ -5,10 +5,10 @@
 #include <stdint.h>
 
 void initialize_random_number_generator(void);
-uint32_t random_uint32_t(void);
+uint32_t random_u32(void);
 
 static inline uint32_t roll_one_die(uint32_t sides) {
-  return (random_uint32_t() % sides) + 1;
+  return (random_u32() % sides) + 1;
 }
 
 #define roll_some_dice(m, n)                                                   \

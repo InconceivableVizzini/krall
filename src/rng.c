@@ -14,7 +14,7 @@ void initialize_random_number_generator(void) {
 }
 
 // xoshiro128++ 1.0 was devised by David Blackman and Sebastiano Vigna
-uint32_t random_uint32_t(void) {
+uint32_t random_u32(void) {
   const uint32_t mixed_up_bits =
       random_number_generator_state[0] + random_number_generator_state[3];
   const uint32_t random_number =

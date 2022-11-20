@@ -14,5 +14,9 @@ endif()
 
 add_executable(krall ${krall_SOURCES})
 
+set_property(TARGET krall PROPERTY C_STANDARD 23)
+
 target_include_directories(krall PRIVATE ${krall_PRIVATE_INCLUDE_DIRECTORIES})
 target_link_libraries(krall ${krall_LINK_LIBRARIES})
+
+

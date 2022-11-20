@@ -98,7 +98,7 @@ void set_saving_throws_for_new_character(character_sheet *character) {
   //    and highest two rolls
   //  * splitting the rolls into six groups of three
   //  * summing the rolls in each group
-  uint32_t unattributed_rolls[NUMBER_OF_SAVING_THROWS] = {0};
+  uint32_t unattributed_rolls[NUMBER_OF_SAVING_THROWS] = {};
 
   {
     roll_some_dice(24, 6);
@@ -120,12 +120,12 @@ void set_saving_throws_for_new_character(character_sheet *character) {
 }
 
 character_sheet create_random_playable_character(void) {
-  character_sheet new_character = {0};
+  character_sheet new_character = {};
 
   new_character.class =
-      (character_classes)(random_uint32_t() % NUMBER_OF_CHARACTER_CLASSES);
+      (character_classes)(random_u32() % NUMBER_OF_CHARACTER_CLASSES);
 
-  new_character.race = (races)(random_uint32_t() % NUMBER_OF_RACES);
+  new_character.race = (races)(random_u32() % NUMBER_OF_RACES);
 
   set_saving_throws_for_new_character(&new_character);
 
