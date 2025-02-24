@@ -87,7 +87,10 @@ static inline void distribute_saving_throw_rolls_prioritized_by_class(
       saving_throws_priority_map_by_character_class[character->class];
 
   for (size_t i = 0; i < NUMBER_OF_SAVING_THROWS; i++) {
-    *(character_throws[*(*saving_throws_priority_map + i)]) = rolls[i];
+    uint32_t saving_throw_reference_index = (*saving_throws_priority_map)[i];
+    uint32_t *character_saving_throw_reference =
+        character_throws[saving_throw_reference_index];
+    *character_saving_throw_reference = rolls[i];
   }
 }
 
