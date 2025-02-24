@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 
   initialize_gui();
 
-  game the_game = {0};
+  game the_game = {};
 
   initialize_gameplay(&the_game);
 

@@ -4,7 +4,7 @@ project(Krall)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-add_compile_options(-Wall -Wextra -Werror -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition)
+add_compile_options(-Wall -Wextra -Werror -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition -Wconversion)
 
 add_subdirectory(src)
 

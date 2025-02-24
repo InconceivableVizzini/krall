@@ -2,6 +2,7 @@
 
 #include "krall/rng.h"
 #include <assert.h>
+#include <errno.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <sys/random.h>
@@ -9,8 +10,16 @@
 uint32_t random_number_generator_state[4];
 
 void initialize_random_number_generator(void) {
-  getrandom(random_number_generator_state,
-            sizeof(random_number_generator_state), 0);
+  ssize_t bytes_or_status =
+      getrandom(random_number_generator_state,
+                sizeof random_number_generator_state, GRND_NONBLOCK);
+  while ((bytes_or_status == -1 && (errno == EAGAIN || errno == EINTR)) ||
+         (bytes_or_status >= 0 &&
+          bytes_or_status < (ssize_t)sizeof random_number_generator_state)) {
+    bytes_or_status =
+        getrandom(random_number_generator_state,
+                  sizeof random_number_generator_state, GRND_NONBLOCK);
+  }
 }
 
 // xoshiro128++ 1.0 was devised by David Blackman and Sebastiano Vigna
