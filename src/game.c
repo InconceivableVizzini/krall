@@ -3,7 +3,7 @@
 #include "krall/gameplay/game.h"
 
 void initialize_gameplay(game *the_game) {
-  for (size_t i = 0; i < 5; i++) {
+  for (size_t i = 0; i < PARTY_SIZE; i++) {
     the_game->party[i] = create_random_playable_character();
   }
   

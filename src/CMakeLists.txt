@@ -1,5 +1,6 @@
 find_package(Characters REQUIRED)
 find_package(Allocators REQUIRED)
+find_package(mimalloc REQUIRED)
 
 set(krall_SOURCES main.c game.c character_sheet.c party.c rng.c comparison.c)
 set(krall_PRIVATE_INCLUDE_DIRECTORIES $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/include> ${CHARACTERS_INCLUDE_DIR} ${ALLOCATORS_INCLUDE_DIR})
